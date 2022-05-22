@@ -4,7 +4,7 @@ from .misc import *
 
 
 class Block():
-    def __init__(self, coordinate, block_size, border_size, **kwargs):
+    def __init__(self, coordinate, block_size, border_size):
 
         self.coordinate = coordinate
         self.block_size = block_size
@@ -45,7 +45,7 @@ class Block():
 
 
 class RandomMaze():
-    def __init__(self, maze_size, block_size, border_size, **kwargs):
+    def __init__(self, maze_size, block_size, border_size):
         self.block_size = block_size
         self.border_size = border_size
         self.maze_size = maze_size
