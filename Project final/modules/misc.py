@@ -19,13 +19,13 @@ def Button(screen, position, text, font, button_color=(120, 120, 120), linecolor
     pygame.draw.rect(screen, button_color, (left, top, b_width, b_height))
     text_render = font.render(text, 1, textcolor)
     rect = text_render.get_rect()
-    rect.center_x, rect.center_y = left + b_width / 2, top + b_height / 2
+    rect.centerx, rect.centery = left + b_width / 2, top + b_height / 2
     return screen.blit(text_render, rect)
 
 
 def Interface(screen, cfg, mode='game_start'):
     pygame.display.set_mode(cfg.SCREENSIZE)
-    font = pygame.font.SysFont('Consoles', 30)
+    font = pygame.font.SysFont('Consolas', 30)
     if mode == 'game_start':
         clock = pygame.time.Clock()
         while True:

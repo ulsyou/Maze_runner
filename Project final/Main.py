@@ -12,7 +12,7 @@ def main(cfg):
     pygame.mixer.music.play(-1, 0.0)
     screen = pygame.display.set_mode(cfg.SCREENSIZE)
     pygame.display.set_caption('Maze Runner')
-    font = pygame.font.SysFont('Consoles', 15)
+    font = pygame.font.SysFont('Consolas', 15)
     Interface(screen, cfg, 'game_start')
     num_levels = 0
     best_scores = '0'

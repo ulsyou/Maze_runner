@@ -49,7 +49,7 @@ class RandomMaze:
         self.border_size = border_size
         self.maze_size = maze_size
         self.blocks_list = RandomMaze.createMaze(maze_size, block_size, border_size)
-        self.font = pygame.font.SysFont('Consoles', 15)
+        self.font = pygame.font.SysFont('Consolas', 15)
 
     def draw(self, screen):
         for row in range(self.maze_size[0]):
