@@ -1,9 +1,8 @@
-import pygame
 import random
 from .misc import *
 
 
-class Block():
+class Block:
     def __init__(self, coordinate, block_size, border_size):
 
         self.coordinate = coordinate
@@ -44,13 +43,13 @@ class Block():
         return True
 
 
-class RandomMaze():
+class RandomMaze:
     def __init__(self, maze_size, block_size, border_size):
         self.block_size = block_size
         self.border_size = border_size
         self.maze_size = maze_size
         self.blocks_list = RandomMaze.createMaze(maze_size, block_size, border_size)
-        self.font = pygame.font.SysFont('Consolas', 15)
+        self.font = pygame.font.SysFont('Consoles', 15)
 
     def draw(self, screen):
         for row in range(self.maze_size[0]):
@@ -63,32 +62,32 @@ class RandomMaze():
 
     @staticmethod
     def createMaze(maze_size, block_size, border_size):
-        def nextBlock(block_now, blocks_list):
+        def nextBlock(blocks_now, block_list):
             directions = ['top', 'bottom', 'left', 'right']
             blocks_around = dict(zip(directions, [None] * 4))
             block_next = None
             count = 0
 
-            if block_now.coordinate[1] - 1 >= 0:
-                block_now_top = blocks_list[block_now.coordinate[1] - 1][block_now.coordinate[0]]
+            if blocks_now.coordinate[1] - 1 >= 0:
+                block_now_top = block_list[blocks_now.coordinate[1] - 1][blocks_now.coordinate[0]]
                 if not block_now_top.is_visited:
                     blocks_around['top'] = block_now_top
                     count += 1
 
-            if block_now.coordinate[1] + 1 < maze_size[0]:
-                block_now_bottom = blocks_list[block_now.coordinate[1] + 1][block_now.coordinate[0]]
+            if blocks_now.coordinate[1] + 1 < maze_size[0]:
+                block_now_bottom = block_list[blocks_now.coordinate[1] + 1][blocks_now.coordinate[0]]
                 if not block_now_bottom.is_visited:
                     blocks_around['bottom'] = block_now_bottom
                     count += 1
 
-            if block_now.coordinate[0] - 1 >= 0:
-                block_now_left = blocks_list[block_now.coordinate[1]][block_now.coordinate[0] - 1]
+            if blocks_now.coordinate[0] - 1 >= 0:
+                block_now_left = block_list[blocks_now.coordinate[1]][blocks_now.coordinate[0] - 1]
                 if not block_now_left.is_visited:
                     blocks_around['left'] = block_now_left
                     count += 1
 
-            if block_now.coordinate[0] + 1 < maze_size[1]:
-                block_now_right = blocks_list[block_now.coordinate[1]][block_now.coordinate[0] + 1]
+            if blocks_now.coordinate[0] + 1 < maze_size[1]:
+                block_now_right = block_list[blocks_now.coordinate[1]][blocks_now.coordinate[0] + 1]
                 if not block_now_right.is_visited:
                     blocks_around['right'] = block_now_right
                     count += 1
@@ -99,16 +98,16 @@ class RandomMaze():
                         block_next = blocks_around.get(direction)
                         if direction == 'top':
                             block_next.has_walls[1] = False
-                            block_now.has_walls[0] = False
+                            blocks_now.has_walls[0] = False
                         elif direction == 'bottom':
                             block_next.has_walls[0] = False
-                            block_now.has_walls[1] = False
+                            blocks_now.has_walls[1] = False
                         elif direction == 'left':
                             block_next.has_walls[3] = False
-                            block_now.has_walls[2] = False
+                            blocks_now.has_walls[2] = False
                         elif direction == 'right':
                             block_next.has_walls[2] = False
-                            block_now.has_walls[3] = False
+                            blocks_now.has_walls[3] = False
                         break
             return block_next
 

@@ -10,22 +10,22 @@ def showText(screen, font, text, color, position):
     return rect.right
 
 
-def Button(screen, position, text, font, button_color=(120, 120, 120), linecolor=(20, 20, 20), textcolor=(255, 255, 255), bwidth=200, bheight=50):
+def Button(screen, position, text, font, button_color=(120, 120, 120), linecolor=(20, 20, 20), textcolor=(255, 255, 255), b_width=200, b_height=50):
     left, top = position
-    pygame.draw.line(screen, linecolor, (left, top), (left+bwidth, top), 5)
-    pygame.draw.line(screen, linecolor, (left, top-2), (left, top+bheight), 5)
-    pygame.draw.line(screen, linecolor, (left, top+bheight), (left+bwidth, top+bheight), 5)
-    pygame.draw.line(screen, linecolor, (left+bwidth, top+bheight), (left+bwidth, top), 5)
-    pygame.draw.rect(screen, button_color, (left, top, bwidth, bheight))
+    pygame.draw.line(screen, linecolor, (left, top), (left + b_width, top), 5)
+    pygame.draw.line(screen, linecolor, (left, top-2), (left, top + b_height), 5)
+    pygame.draw.line(screen, linecolor, (left, top + b_height), (left + b_width, top + b_height), 5)
+    pygame.draw.line(screen, linecolor, (left + b_width, top + b_height), (left + b_width, top), 5)
+    pygame.draw.rect(screen, button_color, (left, top, b_width, b_height))
     text_render = font.render(text, 1, textcolor)
     rect = text_render.get_rect()
-    rect.center_x, rect.center_y = left + bwidth / 2, top + bheight / 2
+    rect.center_x, rect.center_y = left + b_width / 2, top + b_height / 2
     return screen.blit(text_render, rect)
 
 
 def Interface(screen, cfg, mode='game_start'):
     pygame.display.set_mode(cfg.SCREENSIZE)
-    font = pygame.font.SysFont('Consolas', 30)
+    font = pygame.font.SysFont('Consoles', 30)
     if mode == 'game_start':
         clock = pygame.time.Clock()
         while True:
