@@ -62,21 +62,3 @@ def Interface(screen, cfg, mode='game_start'):
                         sys.exit(-1)
             pygame.display.update()
             clock.tick(cfg.FPS)
-    elif mode == 'game_end':
-        clock = pygame.time.Clock()
-        while True:
-            screen.fill((192, 192, 192))
-            button_1 = Button(screen, ((cfg.SCREENSIZE[0]-200)//2, cfg.SCREENSIZE[1]//3), 'Bắt đầu lại', font)
-            button_2 = Button(screen, ((cfg.SCREENSIZE[0]-200)//2, cfg.SCREENSIZE[1]//2), 'Thoát', font)
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit(-1)
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if button_1.collidepoint(pygame.mouse.get_pos()):
-                        return True
-                    elif button_2.collidepoint(pygame.mouse.get_pos()):
-                        pygame.quit()
-                        sys.exit(-1)
-            pygame.display.update()
-            clock.tick(cfg.FPS)
