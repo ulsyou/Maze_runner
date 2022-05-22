@@ -2,9 +2,9 @@ import pygame
 
 
 class Hero(pygame.sprite.Sprite):
-    def __init__(self, imagepath, coordinate, block_size, border_size):
+    def __init__(self, image_path, coordinate, block_size, border_size):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(imagepath)
+        self.image = pygame.image.load(image_path)
         self.image = pygame.transform.scale(self.image, (block_size, block_size))
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = coordinate[0] * block_size + border_size[0], coordinate[1] * block_size + border_size[1]
