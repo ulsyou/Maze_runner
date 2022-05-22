@@ -2,7 +2,7 @@ import pygame
 
 
 class Hero(pygame.sprite.Sprite):
-    def __init__(self, imagepath, coordinate, block_size, border_size, **kwargs):
+    def __init__(self, imagepath, coordinate, block_size, border_size):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(imagepath)
         self.image = pygame.transform.scale(self.image, (block_size, block_size))
