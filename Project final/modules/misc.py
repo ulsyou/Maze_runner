@@ -62,3 +62,4 @@ def Interface(screen, cfg, mode='game_start'):
                         sys.exit(-1)
             pygame.display.update()
             clock.tick(cfg.FPS)
+
