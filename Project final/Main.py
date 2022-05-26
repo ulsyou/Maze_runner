@@ -44,7 +44,7 @@ def main(cfg):
             hero_now.draw(screen)
             maze_now.draw(screen)
             showText(screen, font, 'Màn: %d' % num_levels, (255, 0, 0), (10, 10))
-            showText(screen, font, 'Điểm cao nhất: %s' % best_scores, (255, 0, 0), (210, 10))
+            showText(screen, font, 'Số bước ít nhất: %s' % best_scores, (255, 0, 0), (210, 10))
             showText(screen, font, 'Số bước sử dụng: %s' % num_steps, (255, 0, 0), (410, 10))
             showText(screen, font, 'Start: Điểm bắt đầu    End: Điểm kết thúc', (255, 0, 0), (10, 600))
             if (hero_now.coordinate[0] == cfg.MAZESIZE[1] - 1) and (hero_now.coordinate[1] == cfg.MAZESIZE[0] - 1):
@@ -58,6 +58,6 @@ def main(cfg):
         Interface(screen, cfg, mode='game_switch')
 
 
-'''run'''
+#Start
 if __name__ == '__main__':
     main(cfg)
